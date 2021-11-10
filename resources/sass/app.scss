@@ -1,1 +1,20 @@
-//
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.box-custom-1 {
+    padding-top: 3.125rem;
+}
+
+.box-custom-2 {
+    padding: 3.125rem 0rem;
+}
+
+.comic {
+    margin: .9375rem 0rem;
+}
