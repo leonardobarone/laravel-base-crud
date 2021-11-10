@@ -14,8 +14,8 @@
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">{{$comic->title}}</h5>
-                    <p class="card-text">{{$comic->description}}</p>
-                    <a href="#" class="btn btn-primary">Vai al fumetto</a>
+                    <p class="card-text">{{$comic->price}} €</p>
+                    <a href="{{route('comics.show', $comic->id)}}" class="btn btn-primary">Vai al fumetto</a>
                   </div>
                 </div>
               </div>
