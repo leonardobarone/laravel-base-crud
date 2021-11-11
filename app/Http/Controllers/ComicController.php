@@ -7,6 +7,16 @@ use App\Comic;
 
 class ComicController extends Controller
 {
+    protected $validationRules = [
+        'title' => 'required|max:60',
+        'description' => 'required',
+        'thumb' => 'nullable|url',
+        'price' => 'required|between:0,99.99',
+        'series' => 'required|max:60',
+        'type' => 'required|max:60',
+        'sale_date' => 'required',
+    ];
+
     /**
      * Display a listing of the resource.
      *
@@ -37,6 +47,10 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+
+        // Validazione
+        $request->validate($this->validationRules);
+
         $data = $request->all();
         
         // $newComic = new Comic();
@@ -88,6 +102,10 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
+         // Validazione
+         $request->validate($this->validationRules);
+
+
         $data = $request->all();
         $comic->update($data);
 
@@ -107,3 +125,11 @@ class ComicController extends Controller
          return redirect()->route('comics.index');
     }
 }
+
+
+// try {
+//   $comic->update($data);
+// }
+// catch(Exception $e) {
+    // abort(404); || 500
+// }
